@@ -1,38 +1,165 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'CustomFont'; /* Name you want to assign to the font */
+  src: url('../public/Strong\ Brain.otf') format('truetype'); /* Path to your font file */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.game {
   display: flex;
+  justify-content:flex-start;
+  /* margin: 10% 20% 10% 40%; */
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100vh; 
+  /* margin-top: -30%;   */
+}
+
+.game-board {
+  margin-right: 20px;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.square {
+  background-color: black;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 100px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 100px;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.game-info {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 10rem;
+  
+}
+
+ol {
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+button {
+  
+  background-color: black;
+  border: none;
   color: white;
+  padding:  10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  background: rgb(185,39,103);
+background: radial-gradient(circle, rgba(185,39,103,1) 0%, rgba(132,161,211,1) 94%, rgba(148,187,233,1) 100%);
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: white;
+  color: #18151f;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.next-player-status {
+  color: black;
+  background-color: purple;
+  font-size: 25px;
+  font-weight: 600;
+ display: flex;
+ font-family:'Courier New', Courier, monospace;  
+ justify-content: center;
+ padding: 5%;
+
+}
+
+.abc{
+  
+  display: flex;
+  gap: 9rem;
+  padding: 5px;
+  
+}
+
+/* ///// */
+html {
+  --sz: 16px;
+  --c0: #fff0;
+  --c1: #bdd0e1;
+  --c2: #809bb9;
+  --c3: #3e394a;
+  --c4: #18151f;
+  --ts: 50%/ calc(var(--sz) * 13.0) calc(var(--sz) * 21.0);
+  --bp: calc(var(--sz)* -6.5) calc(var(--sz)* -10.5);
+  margin: 0;
+  padding: 0;
+  height: 50vh;
+  /* overflow: hidden; */
+  --bg: 
+      conic-gradient(from 0deg at 79.5% 7.45%, var(--c2) 0 120deg, var(--c0) 0 100%) var(--ts),
+      conic-gradient(from -60deg at 73% 5.45%, var(--c2) 0 60deg,  var(--c3) 0 120deg, var(--c0) 0 100%) var(--ts),
+      conic-gradient(from 60deg at 92.5% 32.25%, var(--c4) 0 60deg, var(--c0) 0 100%) var(--ts),
+      conic-gradient(from -90deg at 8% 50%, var(--c4) 0 30deg, var(--c0) 0 100%) var(--ts),
+      conic-gradient(from 60deg at 92% 50%, var(--c4) 0 30deg, var(--c0) 0 100%) var(--ts),
+      linear-gradient(150deg, var(--c3) 0 11%,  var(--c0) 0 100%) var(--ts),
+      conic-gradient(from -60deg at 30% 11.25%, var(--c4) 0 60deg, var(--c0) 0 100%) var(--ts),
+      conic-gradient(from 90deg at 50% 0.5%, var(--c4) 0 30deg, var(--c0) 0 150deg,  var(--c4) 0 100%) var(--ts),
+      conic-gradient(from 0deg at 97.5% 50%, var(--c4) 0 90deg, var(--c0) 0 100%) var(--ts),
+      conic-gradient(from -60deg at 54.45% 16.5%, var(--c1) 0 120deg, var(--c0) 0 100%) var(--ts),
+      conic-gradient(from -60deg at 48.75% 17.95%, var(--c2) 0 120deg, var(--c0) 0 100%) var(--ts),
+      conic-gradient(from -60deg at 23.07% 25%, var(--c1) 0 120deg, var(--c0) 0 100%) var(--ts),
+      conic-gradient(from -60deg at 45.45% 27.5%, var(--c3) 0 60deg, var(--c0) 0 100%) var(--ts),
+      conic-gradient(from -60deg at 76.92% 24.3%, var(--c1) 0 120deg, var(--c0) 0 100%) var(--ts),
+      conic-gradient(from -60deg at 76.92% 38%, var(--c2) 0 60deg, var(--c3) 0 120deg, var(--c0) 0 100%) var(--ts),
+      conic-gradient(from 0deg at 45.45% 37%, var(--c4) 0 60deg, var(--c0) 0 100%) var(--ts),
+      conic-gradient(from 0deg at 29% 42.75%, var(--c3) 0 60deg, var(--c0) 0 100%) var(--ts),
+      conic-gradient(from -90deg at 2.5% 50%, var(--c4) 0 90deg, var(--c0) 0 100%) var(--ts),
+      conic-gradient(from -90deg at 23% 50%, var(--c2) 0 90deg, var(--c0) 0 100%) var(--ts),
+      conic-gradient(from -90deg at 29.5% 50%, var(--c3) 0 90deg, var(--c0) 0 100%) var(--ts),
+      conic-gradient(from -90deg at 50% 50%, var(--c2) 0 30deg, var(--c1) 0 150deg, var(--c3) 0 180deg, var(--c0) 0 100%) var(--ts);
+  background: var(--bg), var(--bg);
+  background-position: 
+      var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), 
+      var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), 
+      var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), 
+      0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 
+      0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 
+      0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+}
+
+@media screen and (max-width: 768px) {
+  .game {
+    height: auto;
+    padding: 10px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .game-info {
+    flex-direction: column;
+    gap: 10px;
   }
+  
+  .abc {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
 }
