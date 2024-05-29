@@ -85,7 +85,7 @@ const FlyComponent = () => {
           transform: translate(-50%, -50%);
         }
 
-        /* Rest of the CSS styles here */
+       
       `}</style>
     </div>
   );
